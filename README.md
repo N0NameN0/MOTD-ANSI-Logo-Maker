@@ -50,7 +50,7 @@ A few Amiga demo-group names rendered through the API (each in a different `.TDF
 
 ```bash
 # e.g. the FAIRLIGHT logo above:
-curl -s 'http://<host>/noGIT/ansi/api.php?action=ansi&file=1911.TDF&text=FAIRLIGHT&space=6&gap=1'
+curl -s 'https://malm.santo.fr/api.php?action=ansi&file=1911.TDF&text=FAIRLIGHT&space=6&gap=1'
 ```
 
 ## How it works
@@ -76,7 +76,7 @@ Project layout
 
 ## HTTP API
 
-Base URL: `http://<host>/noGIT/ansi`
+Base URL: `https://malm.santo.fr`
 
 | Endpoint | Description |
 |---|---|
@@ -102,14 +102,14 @@ Plain text render (`color=0`), `4MAX.TDF`, text `MOTD`:
 See it in your terminal (colours included):
 
 ```bash
-curl -s 'http://<host>/noGIT/ansi/api.php?action=ansi&file=4MAXCOL.TDF&text=HELLO&space=6&gap=1'
+curl -s 'https://malm.santo.fr/api.php?action=ansi&file=4MAXCOL.TDF&text=HELLO&space=6&gap=1'
 ```
 
 Write a logo straight into the MOTD (what the **cURL** / **wget** buttons copy):
 
 ```bash
-curl -s 'http://<host>/noGIT/ansi/api.php?action=ansi&file=4MAXCOL.TDF&text=HELLO&space=6&gap=1' > /etc/motd
-wget -qO- 'http://<host>/noGIT/ansi/api.php?action=ansi&file=4MAXCOL.TDF&text=HELLO&space=6&gap=1' > /etc/motd
+curl -s 'https://malm.santo.fr/api.php?action=ansi&file=4MAXCOL.TDF&text=HELLO&space=6&gap=1' > /etc/motd
+wget -qO- 'https://malm.santo.fr/api.php?action=ansi&file=4MAXCOL.TDF&text=HELLO&space=6&gap=1' > /etc/motd
 ```
 
 > `/etc/motd` is root-owned; if you are not root use `... | sudo tee /etc/motd >/dev/null`.
