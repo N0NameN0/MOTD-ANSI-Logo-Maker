@@ -37,6 +37,22 @@ result straight to `/etc/motd`.
 |---|---|
 | ![sort](README.img/sort-height.png) | ![about](README.img/about.png) |
 
+## Gallery
+
+A few Amiga demo-group names rendered through the API (each in a different `.TDF` font):
+
+| | |
+|---|---|
+| **FAIRLIGHT** — `1911.TDF` | **SCOOPEX** — `4MAXCOL.TDF` |
+| ![FAIRLIGHT](README.img/logo-fairlight.png) | ![SCOOPEX](README.img/logo-scoopex.png) |
+| **RAZOR 1911** — `ACIDTRON.TDF` | **SANITY** — `ACID3DX.TDF` |
+| ![RAZOR 1911](README.img/logo-razor1911.png) | ![SANITY](README.img/logo-sanity.png) |
+
+```bash
+# e.g. the FAIRLIGHT logo above:
+curl -s 'http://<host>/noGIT/ansi/api.php?action=ansi&file=1911.TDF&text=FAIRLIGHT&space=6&gap=1'
+```
+
 ## How it works
 
 Each glyph cell is a `(character, attribute)` pair. The renderer composites, per 8x16 cell:
