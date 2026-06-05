@@ -1,7 +1,11 @@
 # MOTD ANSI Logo Maker
 
 <p align="center">
-  <img src="README.img/app.png" alt="MOTD ANSI Logo Maker" width="100%">
+  <a href="https://malm.santo.fr"><img src="README.img/app.png" alt="MOTD ANSI Logo Maker" width="100%"></a>
+</p>
+
+<p align="center">
+  <b>▶ Live app: <a href="https://malm.santo.fr">https://malm.santo.fr</a></b>
 </p>
 
 Generate colourful **ANSI logos** from classic **TheDraw `.TDF`** fonts - perfect for an
