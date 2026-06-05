@@ -1,0 +1,6 @@
+# generated cache (rebuilt automatically when missing or when the font count changes)
+metrics.json
+
+# editor / OS noise
+*~
+.DS_Store
