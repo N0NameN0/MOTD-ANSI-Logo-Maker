@@ -6,7 +6,14 @@ header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
 $FONTS_DIR = __DIR__ . '/fonts';
-$METRICS_CACHE = __DIR__ . '/metrics.json';
+// Cache lives in the system temp dir so it works without making the app
+// directory writable by the web-server user (no touch/chmod needed on deploy).
+// The path is unique per install (hashed fonts dir) and auto-rebuilt when the
+// font count changes. Falls back to the app dir if no temp dir is available.
+$tmp = sys_get_temp_dir();
+$METRICS_CACHE = ($tmp && is_writable($tmp))
+    ? rtrim($tmp, '/') . '/malm_metrics_' . md5($FONTS_DIR) . '.json'
+    : __DIR__ . '/metrics.json';
 
 function fail(int $code, string $msg): void
 {

@@ -127,7 +127,9 @@ wget -qO- 'https://malm.santo.fr/api.php?action=ansi&file=4MAXCOL.TDF&text=HELLO
 - A web server with **PHP** (tested on lighttpd + PHP-CGI/FPM).
 - PHP `iconv` extension (CP437 -> UTF-8 for ANSI output).
 - Drop the folder under your web root and open `index.php`.
-- `metrics.json` is regenerated automatically on first use (and when fonts are added/removed).
+- The metrics cache is stored in the **system temp dir** and rebuilt automatically (on first
+  use, and whenever the font count changes) - no special write permission on the app directory
+  is required, so a plain `git clone` + vhost just works.
 
 ## Credits
 
