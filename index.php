@@ -15,8 +15,8 @@
              background:var(--panel); border-bottom:1px solid var(--line); padding:8px 12px; }
   #logobar img { max-height:88px; max-width:100%; height:auto; display:block; }
   header { grid-column:1/3; display:flex; flex-wrap:wrap; gap:10px; align-items:center;
-           padding:8px 12px; background:var(--panel); border-bottom:1px solid var(--line); }
-  header h1 { font-size:14px; margin:0 12px 0 0; color:var(--accent); white-space:nowrap; }
+           justify-content:center; padding:8px 12px; background:var(--panel);
+           border-bottom:1px solid var(--line); }
   header label { display:flex; align-items:center; gap:5px; white-space:nowrap; }
   input,select,button { background:#0e0f15; color:var(--fg); border:1px solid var(--line);
                         border-radius:5px; padding:4px 6px; font:inherit; }
@@ -30,7 +30,7 @@
            transform:translateY(-4px); transition:opacity .3s ease, transform .3s ease;
            box-shadow:0 4px 16px #0009; white-space:nowrap; }
   #toast.show { opacity:1; transform:translateY(0); }
-  #infobtn { margin-left:auto; width:30px; height:30px; border-radius:50%; padding:0;
+  #infobtn { width:30px; height:30px; border-radius:50%; padding:0;
              font-size:16px; line-height:1; }
   .overlay { position:fixed; inset:0; background:#000a; backdrop-filter:blur(2px);
              display:flex; align-items:center; justify-content:center; z-index:100; }
@@ -67,7 +67,6 @@
 <div class="app">
   <div id="logobar"><img src="logo.png" alt="MOTD ANSI Logo Maker"></div>
   <header>
-    <h1>MOTD ANSI Logo Maker</h1>
     <label>Text <input id="word" value="HELLO" autocomplete="off"></label>
     <label>Space <input id="space" type="number" min="0" max="40" value="6" style="width:54px"></label>
     <label>Gap <input id="gap" type="number" min="0" max="40" value="1" style="width:54px"></label>
