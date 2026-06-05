@@ -14,8 +14,6 @@ spacing / gap / zoom, preview a **pixel-perfect VGA rendering** in the browser, 
 to **PNG** or **ANSI**, or copy a ready-to-paste **curl / wget** command that writes the
 result straight to `/etc/motd`.
 
-> Coded by **Antoine Santo** aka **N0NameN0** - <https://github.com/N0NameN0>
-
 ---
 
 ## Features
