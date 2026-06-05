@@ -109,7 +109,7 @@
     <h2>MOTD ANSI Logo Maker</h2>
     <p>Generate ANSI logos from TheDraw <code>.TDF</code> fonts<br>for your SSH <code>/etc/motd</code>.</p>
     <p class="credit">Coded by <strong>Antoine Santo</strong> <span class="meta">aka</span> <strong>N0NameN0</strong></p>
-    <p><a id="ghlink" href="https://github.com/N0NameN0" target="_blank" rel="noopener">github.com/N0NameN0 &rarr;</a></p>
+    <p><a id="ghlink" href="https://github.com/N0NameN0/MOTD-ANSI-Logo-Maker" target="_blank" rel="noopener">github.com/N0NameN0/MOTD-ANSI-Logo-Maker &rarr;</a></p>
   </div>
 </div>
 
