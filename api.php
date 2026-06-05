@@ -1,15 +1,15 @@
 <?php
-// api.php - JSON API for the ANSI/TDF web renderer.
+// api.php - JSON / ANSI API for the MOTD ANSI Logo Maker.
 require __DIR__ . '/tdf.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
+header('X-Content-Type-Options: nosniff');   // no MIME sniffing
 
 $FONTS_DIR = __DIR__ . '/fonts';
-// Cache lives in the system temp dir so it works without making the app
-// directory writable by the web-server user (no touch/chmod needed on deploy).
-// The path is unique per install (hashed fonts dir) and auto-rebuilt when the
-// font count changes. Falls back to the app dir if no temp dir is available.
+// Cache in the system temp dir so it works without making the app directory
+// writable by the web-server user. Unique per install; rebuilt when the font
+// count changes. Falls back to the app dir if no temp dir is available.
 $tmp = sys_get_temp_dir();
 $METRICS_CACHE = ($tmp && is_writable($tmp))
     ? rtrim($tmp, '/') . '/malm_metrics_' . md5($FONTS_DIR) . '.json'
@@ -25,7 +25,8 @@ function fail(int $code, string $msg): void
 function safe_font_path(string $FONTS_DIR, string $name): string
 {
     $name = basename($name);
-    if (!preg_match('/^[A-Za-z0-9._-]+\.tdf$/i', $name)) fail(400, 'bad file name');
+    // strict whitelist; the D modifier stops a trailing newline matching the end anchor
+    if (!preg_match('/^[A-Za-z0-9._-]+\.tdf$/iD', $name)) fail(400, 'bad file name');
     $path = $FONTS_DIR . '/' . $name;
     if (!is_file($path)) fail(404, 'font not found');
     return $path;
@@ -51,8 +52,7 @@ if ($action === 'list') {
 if ($action === 'metrics') {
     $files = list_font_files($FONTS_DIR);
     $refresh = isset($_GET['refresh']);
-    // Use the cache unless forced, or unless the number of fonts changed
-    // (added/removed) -> then recompute automatically.
+    // Use the cache unless forced, or unless the number of fonts changed.
     if (!$refresh && is_file($METRICS_CACHE)) {
         $cached = file_get_contents($METRICS_CACHE);
         if ($cached !== false) {
@@ -98,9 +98,11 @@ if ($action === 'ansi') {
     $var = (int)($_GET['var'] ?? 0);
     $var = max(0, min($var, count($fonts) - 1));
     $font = $fonts[$var];
+    // bound every numeric input and cap text length to prevent a huge-grid DoS
     $text = (string)($_GET['text'] ?? 'HELLO');
-    $sw   = max(0, (int)($_GET['space'] ?? 6));
-    $gap  = max(0, (int)($_GET['gap'] ?? 1));
+    if (mb_strlen($text, 'UTF-8') > 256) $text = mb_substr($text, 0, 256, 'UTF-8');
+    $sw    = min(100, max(0, (int)($_GET['space'] ?? 6)));
+    $gap   = min(100, max(0, (int)($_GET['gap'] ?? 1)));
     $defFg = max(0, min(15, (int)($_GET['fg'] ?? 7)));
     $color = (($_GET['color'] ?? '1') !== '0');
 
