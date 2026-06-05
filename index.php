@@ -5,6 +5,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MOTD ANSI Logo Maker</title>
+<meta name="description" content="Generate colourful ANSI logos from classic TheDraw .TDF fonts - perfect for your SSH /etc/motd banner. Browse 1197 fonts, preview live, export PNG/ANSI or copy a one-line curl command.">
+<link rel="canonical" href="https://malm.santo.fr/">
+<meta name="theme-color" content="#11131a">
+<!-- favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<!-- Open Graph (Facebook, Messenger, LinkedIn, Google...) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MOTD ANSI Logo Maker">
+<meta property="og:title" content="MOTD ANSI Logo Maker">
+<meta property="og:description" content="Generate colourful ANSI logos from classic TheDraw .TDF fonts - perfect for your SSH /etc/motd banner.">
+<meta property="og:url" content="https://malm.santo.fr/">
+<meta property="og:image" content="https://malm.santo.fr/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MOTD ANSI Logo Maker - ANSI logo of FAIRLIGHT">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MOTD ANSI Logo Maker">
+<meta name="twitter:description" content="Generate colourful ANSI logos from TheDraw .TDF fonts for your SSH /etc/motd banner.">
+<meta name="twitter:image" content="https://malm.santo.fr/og-image.png">
 <style>
   :root { --bg:#11131a; --panel:#1b1e27; --line:#2c3140; --fg:#cdd3e0; --accent:#5ac8fa; }
   * { box-sizing: border-box; }
